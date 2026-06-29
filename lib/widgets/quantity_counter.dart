@@ -6,11 +6,13 @@ class QuantityCounter extends StatelessWidget {
     required this.quantity,
     required this.onDecrement,
     required this.onIncrement,
+    this.step = 1,
   });
 
   final int quantity;
   final VoidCallback onDecrement;
   final VoidCallback onIncrement;
+  final int step;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,10 @@ class QuantityCounter extends StatelessWidget {
         children: [
           _CounterButton(
             icon: Icons.remove_rounded,
-            onPressed: quantity > 0 ? onDecrement : null,
+            onPressed: quantity >= step ? onDecrement : null,
           ),
           SizedBox(
-            width: 40,
+            width: quantity >= 100 ? 52 : 44,
             child: Text(
               '$quantity',
               textAlign: TextAlign.center,

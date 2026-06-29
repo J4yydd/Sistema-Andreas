@@ -27,6 +27,17 @@ void main() {
     expect(groups[1].summaryLabel, 'Spaghetti a la Andreas');
   });
 
+  test('Incluye nota adicional de pasta en el resumen', () {
+    final groups = buildOrderSummaryGroups(
+      pizzaQuantities: {},
+      pizzaCustomizations: {},
+      pastaQuantities: {'spaghetti_andreas': 1},
+      pastaNotes: {'spaghetti_andreas': 'Sin queso'},
+    );
+
+    expect(groups.single.summaryLabel, 'Spaghetti a la Andreas · Sin queso');
+  });
+
   test('Calcula total general con pizzas y pastas', () {
     expect(
       calculateOrderGrandTotal(

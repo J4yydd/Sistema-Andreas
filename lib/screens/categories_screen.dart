@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_andreas/models/category.dart';
+import 'package:sistema_andreas/screens/botanas_screen.dart';
 import 'package:sistema_andreas/screens/pastas_screen.dart';
 import 'package:sistema_andreas/screens/pizzas_screen.dart';
+import 'package:sistema_andreas/screens/wings_screen.dart';
 import 'package:sistema_andreas/utils/categories_data.dart';
 import 'package:sistema_andreas/widgets/app_scaffold.dart';
 import 'package:sistema_andreas/widgets/category_card.dart';
@@ -23,6 +25,24 @@ class CategoriesScreen extends StatelessWidget {
       Navigator.of(context).push(
         MaterialPageRoute<void>(
           builder: (_) => const PastasScreen(),
+        ),
+      );
+      return;
+    }
+
+    if (category.id == 'alitas') {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => const WingsScreen(),
+        ),
+      );
+      return;
+    }
+
+    if (category.id == 'botanas') {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => const BotanasScreen(),
         ),
       );
       return;

@@ -32,8 +32,10 @@ class PastasScreen extends StatelessWidget {
                 name: pasta.name,
                 unitPrice: pasta.unitPrice,
                 quantity: quantity,
+                notes: order.pastaNotesFor(pasta.id),
                 onDecrement: () => order.decrementPasta(pasta),
                 onIncrement: () => order.incrementPasta(pasta),
+                onNotesChanged: (notes) => order.setPastaNotes(pasta.id, notes),
               );
             },
           ),
